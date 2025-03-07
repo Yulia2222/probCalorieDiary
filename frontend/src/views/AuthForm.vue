@@ -122,7 +122,7 @@ export default {
 <style scoped>
 .auth-container {
   max-width: 400px;
-  margin: 0 auto;
+  margin: 50px auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;

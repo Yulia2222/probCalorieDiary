@@ -188,6 +188,7 @@ const calculateNutrition = (value: number) => {
 .input-container {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .label {
@@ -201,6 +202,8 @@ const calculateNutrition = (value: number) => {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .suggestions-list {
@@ -213,13 +216,18 @@ const calculateNutrition = (value: number) => {
   max-height: 200px;
   overflow-y: auto;
   position: absolute;
+  top: 100%;
+  left: 0;
   width: 100%;
   z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .suggestion-item {
   padding: 10px;
   cursor: pointer;
+  font-size: 0.9rem;
+  color: #333;
 }
 
 .suggestion-item:hover {
@@ -251,7 +259,6 @@ const calculateNutrition = (value: number) => {
   font-size: 1.1rem;
   font-weight: bold;
 }
-
 
 .result-item {
   margin-top: 0.5rem;

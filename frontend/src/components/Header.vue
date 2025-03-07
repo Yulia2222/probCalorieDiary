@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo">
-      <router-link to="/">Food Diary</router-link>
+      <router-link :to="`/${userId}/diary`">Food Diary</router-link>
     </div>
 
     <nav class="navigation">
