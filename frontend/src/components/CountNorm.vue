@@ -43,9 +43,9 @@ const bmr = computed(() => {
     let baseBMR: number;
 
     if (userGender.value === 'male') {
-      baseBMR = 88.36 + (13.4 * userWeight.value) + (4.8 * userHeight.value) - (5.7 * userAge.value);
+      baseBMR = (10 * userWeight.value) + (6.25 * userHeight.value) - (5 * userAge.value) + 5;
     } else {
-      baseBMR = 447.6 + (9.2 * userWeight.value) + (3.1 * userHeight.value) - (4.3 * userAge.value);
+      baseBMR = (10 * userWeight.value) + (6.25 * userHeight.value) - (5 * userAge.value) - 161;
     }
 
     const activityMultiplier = activityMultipliers[userActivityIndex.value] || 1.2;
