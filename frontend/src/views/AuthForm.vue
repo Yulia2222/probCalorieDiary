@@ -51,7 +51,7 @@
           <option value="Gain">Набрать массу</option>
         </select>
       </div>
-      <button type="submit">{{ isRegistering ? "Зарегистрироваться" : "Войти" }}</button>
+      <button type="submit">{{ isRegistering ? "Создать аккаунт" : "Войти" }}</button>
     </form>
     <p @click="toggleForm">
       {{ isRegistering ? "Уже есть аккаунт? Войти" : "Нет аккаунта? Зарегистрироваться" }}
