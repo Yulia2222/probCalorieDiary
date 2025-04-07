@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from './app/app.module';
 import { RecipeService } from './recipes/recipe.service';
 import { FoodItemService } from './food-items/food-item.service';
 
