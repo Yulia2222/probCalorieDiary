@@ -45,10 +45,8 @@
       Найти продукт
     </button>
 
-    <!-- Сообщение об ошибке, если продукт не найден -->
     <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
 
-    <!-- Отображение информации о найденном продукте -->
     <div v-if="food && !errorMessage" class="result-section">
       <div v-if="weight > 0" class="result-box">
         <h4 class="result-title">Итоговые значения для {{ weight }} г:</h4>
@@ -63,7 +61,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import axios from "axios";
 
 const props = defineProps({
@@ -89,7 +87,7 @@ const emit = defineEmits(['fetch-foods', 'select-suggestion', 'close', 'add-food
 
 const dishName = ref('');
 const suggestions = ref([]);
-const errorMessage = ref(''); // Сообщение об ошибке
+const errorMessage = ref('');
 
 const fetchProductSuggestions = async () => {
   if (dishName.value.trim().length < 2) {
@@ -102,7 +100,7 @@ const fetchProductSuggestions = async () => {
       params: { query: dishName.value },
     });
     suggestions.value = response.data || [];
-    errorMessage.value = ''; // Очищаем сообщение об ошибке при успешном запросе
+    errorMessage.value = '';
   } catch (error) {
     console.error('Ошибка при получении подсказок:', error);
     suggestions.value = [];
@@ -129,9 +127,9 @@ const fetchFoods = async () => {
 
     if (response.data) {
       emit('fetch-foods', { dishName: dishName.value, weight: props.weight, mealType: props.mealType });
-      errorMessage.value = ''; // Очищаем сообщение об ошибке, если продукт найден
+      errorMessage.value = '';
     } else {
-      errorMessage.value = 'Продукт не найден'; // Устанавливаем сообщение об ошибке
+      errorMessage.value = 'Продукт не найден';
     }
   } catch (error) {
     console.error('Ошибка при поиске продукта:', error);
@@ -197,7 +195,7 @@ const calculateNutrition = (value: number) => {
   margin-bottom: 0.5rem;
 }
 
-.input, .select-input {
+.input{
   padding: 0.8rem;
   font-size: 1rem;
   border: 1px solid #ccc;
