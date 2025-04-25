@@ -486,7 +486,7 @@ async function calculatePortionNutritionForRecipe(
     water: 0,
     fiber: 0,
   };
-
+  console.log("recipe ccal",(totalCalories / totalWeight) * portionWeight )
   return {
     calories: (totalCalories / totalWeight) * portionWeight,
     protein: (totalProtein / totalWeight) * portionWeight,
@@ -549,6 +549,7 @@ function updateProbabilities(
   });
 
   const total = updatedProbabilities.reduce((acc, prob) => acc + prob, 0);
+  console.log("PROP",recipes)
   return updatedProbabilities.map((prob) => prob / total);
 }
 
@@ -608,13 +609,14 @@ async function calculateExpectedNutritionWithBayes() {
       water: 0,
       fiber: 0
     };
-
+    console.log("SSSSS", recipes.length);
     for (let i = 0; i < recipes.length; i++) {
       const recipeNutrition = await calculatePortionNutritionForRecipe(
           recipes[i],
           portionWeight.value
       );
       console.log("totALLLLLLLLLLLLL", recipeNutrition.calories, recipeNutrition.vitaminA);
+
       totalNutrition.calories += recipeNutrition.calories * probabilities[i];
       totalNutrition.protein += recipeNutrition.protein * probabilities[i];
       totalNutrition.fat += recipeNutrition.fat * probabilities[i];
