@@ -4,11 +4,11 @@
     <form @submit.prevent="handleSubmit">
       <div>
         <label for="username">Логин</label>
-        <input id="username" v-model="form.username" required />
+        <input id="username" v-model="form.username" autocomplete="off" required />
       </div>
       <div>
         <label for="password">Пароль</label>
-        <input id="password" type="password" v-model="form.password" required />
+        <input id="password" type="password" v-model="form.password" autocomplete="off" required />
       </div>
       <div v-if="isRegistering">
         <label for="gender">Пол</label>

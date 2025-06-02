@@ -12,6 +12,7 @@
           type="text"
           placeholder="Введите название продукта"
           class="input"
+          autocomplete="off"
           @input="fetchProductSuggestions"
       />
       <ul v-if="suggestions.length" class="suggestions-list">
